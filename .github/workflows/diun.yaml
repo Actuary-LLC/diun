@@ -1,0 +1,18 @@
+name: 'diun'
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: [self-hosted]
+    env:
+      DIUN_DISCORD_WEBHOOK: ${{ secrets.DIUN_DISCORD_WEBHOOK }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run a container command
+        run: |
+          docker stack deploy -c diun.yaml diun
