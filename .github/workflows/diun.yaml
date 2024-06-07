@@ -8,16 +8,17 @@ on:
 jobs:
   deploy:
     runs-on: [self-hosted]
-    env:
-      DIUN_NOTIF_DISCORD_WEBHOOKURL: ${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}
-      TAG: ${{ github.sha }}
     steps:
-      - name: Configure application
-        run: |
-          sed -i 's/${DIUN_NOTIF_DISCORD_WEBHOOKURL}/${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}/' config.yaml
-          cat config.yaml
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Configure application
+        env:
+          DIUN_NOTIF_DISCORD_WEBHOOKURL: ${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}
+        run: |
+          sed -i 's/${DIUN_NOTIF_DISCORD_WEBHOOKURL}/'${DIUN_NOTIF_DISCORD_WEBHOOKURL}'/' config.yaml
+          cat config.yaml
       - name: Run a container command
+        env:
+          TAG: ${{ github.sha }}
         run: |
           docker stack deploy -c diun.yaml diun
