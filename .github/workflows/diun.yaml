@@ -15,10 +15,11 @@ jobs:
         env:
           DIUN_NOTIF_DISCORD_WEBHOOKURL: ${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}
         run: |
-          sed -i 's/${ DIUN_NOTIF_DISCORD_WEBHOOKURL }/'${{ DIUN_NOTIF_DISCORD_WEBHOOKURL }}'/' config.yaml
+          sed -i 's/${DIUN_NOTIF_DISCORD_WEBHOOKURL}/'${{ DIUN_NOTIF_DISCORD_WEBHOOKURL }}'/' config.yaml
           cat config.yaml
       - name: Run a container command
         env:
           TAG: ${{ github.sha }}
+          DIUN_NOTIF_DISCORD_WEBHOOKURL: ${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}
         run: |
           docker stack deploy -c diun.yaml diun
