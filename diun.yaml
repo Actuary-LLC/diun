@@ -22,9 +22,6 @@ services:
       - "DIUN_WATCH_JITTER=30s"
       - "DIUN_PROVIDERS_DOCKER=true"
       # Discord
-      #- "DIUN_NOTIF_DISCORD_WEBHOOKURL=${DIUN_DISCORD_WEBHOOK}"
-      #- "DIUN_NOTIF_DISCORD_RENDERFIELDS=@alexanderscott"
-      #- "DIUN_NOTIF_DISCORD_TIMEOUT=10s"
-      #- "DIUN_NOTIF_DISCORD_TEMPLATEBODY= Docker image needs updating"
+      - "DIUN_NOTIF_DISCORD_WEBHOOKURL=${DIUN_NOTIF_DISCORD_WEBHOOKURL}"
     labels:
       - "diun.enable=true"
