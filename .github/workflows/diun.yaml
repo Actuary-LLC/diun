@@ -11,12 +11,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Configure application
-        env:
-          DIUN_NOTIF_DISCORD_WEBHOOKURL: ${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}
-        run: |
-          sed -i 's/${DIUN_NOTIF_DISCORD_WEBHOOKURL}/'${{ DIUN_NOTIF_DISCORD_WEBHOOKURL }}'/' config.yaml
-          cat config.yaml
+      #- name: Configure application
+      #  env:
+      #    DIUN_NOTIF_DISCORD_WEBHOOKURL: ${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}
+      #  run: |
+      #    sed -i 's/${DIUN_NOTIF_DISCORD_WEBHOOKURL}/'${{ DIUN_NOTIF_DISCORD_WEBHOOKURL }}'/' config.yaml
+      #    cat config.yaml
       - name: Run a container command
         env:
           TAG: ${{ github.sha }}
