@@ -1,6 +1,5 @@
 notif:
   discord:
-    webhookURL: ${{DIUN_NOTIF_DISCORD_WEBHOOKURL}}
     mentions:
       - "@alexanderscott"
     renderFields: true
