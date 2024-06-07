@@ -9,7 +9,8 @@ jobs:
   deploy:
     runs-on: [self-hosted]
     env:
-      DIUN_DISCORD_WEBHOOK: ${{ secrets.DIUN_DISCORD_WEBHOOK }}
+      DIUN_NOTIF_DISCORD_WEBHOOKURL: ${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}
+      TAG: ${{ github.sha }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
