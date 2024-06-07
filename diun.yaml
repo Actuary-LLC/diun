@@ -1,8 +1,16 @@
-version: "3.5"
+version: "3.9"
+
+configs:
+  customization:
+    name: configuration_${TAG}
+    file: ./config.yaml
 
 services:
   diun:
     image: crazymax/diun:latest
+    configs: 
+      - source: customization
+        target: /etc/diun/diun.yaml
     command: serve
     volumes:
       - "/mnt/user/docker/volumes/diun/:/data"
@@ -14,9 +22,9 @@ services:
       - "DIUN_WATCH_JITTER=30s"
       - "DIUN_PROVIDERS_DOCKER=true"
       # Discord
-      - "DIUN_NOTIF_DISCORD_WEBHOOKURL=${DIUN_DISCORD_WEBHOOK}"
+      #- "DIUN_NOTIF_DISCORD_WEBHOOKURL=${DIUN_DISCORD_WEBHOOK}"
       #- "DIUN_NOTIF_DISCORD_RENDERFIELDS=@alexanderscott"
-      - "DIUN_NOTIF_DISCORD_TIMEOUT=10s"
-      - "DIUN_NOTIF_DISCORD_TEMPLATEBODY= Docker image needs updating"
+      #- "DIUN_NOTIF_DISCORD_TIMEOUT=10s"
+      #- "DIUN_NOTIF_DISCORD_TEMPLATEBODY= Docker image needs updating"
     labels:
       - "diun.enable=true"
