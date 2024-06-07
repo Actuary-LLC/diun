@@ -15,7 +15,7 @@ services:
       - "DIUN_PROVIDERS_DOCKER=true"
       # Discord
       - "DIUN_NOTIF_DISCORD_WEBHOOKURL=${DIUN_DISCORD_WEBHOOK}"
-      - "DIUN_NOTIF_DISCORD_RENDERFIELDS=alexanderscott"
+      - "DIUN_NOTIF_DISCORD_RENDERFIELDS= @alexanderscott"
       - "DIUN_NOTIF_DISCORD_TIMEOUT=10s"
       - "DIUN_NOTIF_DISCORD_TEMPLATEBODY= Docker image needs updating"
     labels:
