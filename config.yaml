@@ -1,0 +1,9 @@
+notif:
+  discord:
+    webhookURL: ${{DIUN_NOTIF_DISCORD_WEBHOOKURL}}
+    mentions:
+      - "@alexanderscott"
+    renderFields: true
+    timeout: 10s
+    templateBody: |
+      Docker tag {{ .Entry.Image }} which you subscribed to through {{ .Entry.Provider }} provider has been released.
