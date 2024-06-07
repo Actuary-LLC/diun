@@ -16,7 +16,6 @@ jobs:
         run: |
           sed -i 's/${DIUN_NOTIF_DISCORD_WEBHOOKURL}/${{ secrets.DIUN_NOTIF_DISCORD_WEBHOOKURL }}/' config.yaml
           cat config.yaml
-    steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run a container command
