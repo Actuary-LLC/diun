@@ -17,6 +17,6 @@ services:
       - "DIUN_NOTIF_DISCORD_WEBHOOKURL=${DIUN_DISCORD_WEBHOOK}"
       - "DIUN_NOTIF_DISCORD_RENDERFIELDS=alexanderscott"
       - "DIUN_NOTIF_DISCORD_TIMEOUT=10s"
-      - "DIUN_NOTIF_DISCORD_TEMPLATEBODY= Docker tag {{ .Entry.Image }} which you subscribed to through {{ .Entry.Provider }} provider has been released."
+      - "DIUN_NOTIF_DISCORD_TEMPLATEBODY= Docker image needs updating"
     labels:
       - "diun.enable=true"
