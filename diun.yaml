@@ -25,4 +25,3 @@ services:
       - "DIUN_NOTIF_DISCORD_WEBHOOKURL=${DIUN_NOTIF_DISCORD_WEBHOOKURL}"
     labels:
       - diun.enable=true
-      - diun.notify_on=new
