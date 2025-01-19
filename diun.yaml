@@ -7,7 +7,7 @@ configs:
 
 services:
   diun:
-    image: crazymax/diun:4.28.0
+    image: crazymax/diun:4.29.0
     configs: 
       - source: customization
         target: /etc/diun/diun.yaml
